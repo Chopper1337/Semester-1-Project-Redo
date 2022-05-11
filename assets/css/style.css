@@ -1,0 +1,29 @@
+body{
+    background-color: #0e131f;
+}
+
+p{
+    color: white;
+}
+
+.footerText{
+    color: #6b839b;
+}
+
+.navText{
+    color: #8aa8c4;
+}
+
+.themedBG{
+    background-color: #2c3441;
+}
+
+.card{
+    background-color: #19212c;
+    max-width: 18rem;
+}
+
+.cardImg{
+    max-width: max-content;
+    max-height: 12rem;
+}
