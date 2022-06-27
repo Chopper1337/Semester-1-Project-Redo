@@ -9,17 +9,28 @@ updateCart();
 
 // Log in user
 function Login() {
-    // Set loggedIn item in local storage to 1, to reflect login status
-    localStorage.setItem("loggedIn", "1");
-    // Log the action to console
-    console.log("Login button clicked, user logged in")
-    // Get the hidden modal
-    var loginModal = document.querySelector('#login')
-    var modal = bootstrap.Modal.getOrCreateInstance(loginModal)
-    // Hide the modal as the user is logged in and the modal is no longer needed
-    modal.hide();
-    // Run CheckLogin function to apply changes to reflect the login status
-    CheckLogin();
+    var enteredUsername = document.getElementById("emailAddressid").value;
+    var enteredPassword = document.getElementById("passwordid").value;
+
+    if (enteredUsername == "User@mail.com" && enteredPassword == "Password") {
+        // Set loggedIn item in local storage to 1, to reflect login status
+        localStorage.setItem("loggedIn", "1");
+        // Log the action to console
+        console.log("Login button clicked, user logged in")
+
+        // Get the hidden modal
+        var loginModal = document.querySelector('#login')
+        var modal = bootstrap.Modal.getOrCreateInstance(loginModal)
+        // Hide the modal as the user is logged in and the modal is no longer needed
+        modal.hide();
+
+        // Run CheckLogin function to apply changes to reflect the login status
+        CheckLogin();
+    }
+    else{
+        //Fail login error
+    }
+
 }
 
 
@@ -72,7 +83,7 @@ function LoginLogoutBTN() {
         var modal = bootstrap.Modal.getOrCreateInstance(myModal) // Returns a Bootstrap modal instance
         modal.show()
     }
-    
+
 }
 
 

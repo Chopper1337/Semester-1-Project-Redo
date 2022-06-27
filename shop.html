@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<head>
+    <title>SK1N-M4RK3T.GG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark py-3">
+        <div class="container">
+            <a href="#" class="navbar-brand">SK1N-M4RK3T.GG</a>
+            <a href="#" class="navbar-brand text-muted fs-6">because skins = wins.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nb">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nb" class="collapse navbar-collapse">
+                <ul class="navbar-nav navText ms-auto">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="shop.html" class="nav-link">SHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group">
+                            <button type="button" class="btn themedBG text-white dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">Currency</button>
+                            <ul class="dropdown-menu themedBG dropdown-menu-dark">
+                                <li>
+                                    <a class="dropdown-item text-white"
+                                        onclick="changeCurrency('euro')" href="#">EUR</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" onclick="changeCurrency('usd')" href="#">USD</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" onclick="changeCurrency('cad')" href="#">GBP</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" id="loginNavBTN" onclick="LoginLogoutBTN()"
+                            class="btn btn-primary mx-1">Login/Register</button>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fa" id="cartCounter">&#xf07a;</i>
+                        <span class='badge badge-warning' id='lblCartCount'></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Login modal -->
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card text-white themedBG">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalTitle">Login/Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form name="login" id="loginForm">
+                        <div class="form-group">
+                            <label for="emailAddress">Email</label>
+                            <input type="email" class="form-control" id="emailAddressid" name="email"
+                                placeholder="user@mail.com" value="User@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="passwordid" name="password"
+                                placeholder="Password1" value="Password" required>
+                        </div>
+                        <div class="mt-3 form-group">
+                            <input type='submit' onclick="Login()" class="btn btn-primary" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End login modal -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/ak.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AK47</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency" onclick="updateCart(1)">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/awp.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AWP</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/dgl.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Desert Eagle</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/tf2/strange-frozen-aurora-claidheamh-mor.webp" class="cardImg card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/ak.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AK47</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/awp.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AWP</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/dgl.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Desert Eagle</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/tf2/strange-frozen-aurora-claidheamh-mor.webp" class="cardImg card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/ak.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AK47</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/awp.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">AWP</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/csgo/dgl.webp" class="cardImg card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Desert Eagle</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 my-4">
+                <div class="card">
+                    <img src="assets/media/tf2/strange-frozen-aurora-claidheamh-mor.webp" class="cardImg card-img-top"
+                        alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary currency">€2155998</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/store.js"></script>
+</body>
+
+</html>
