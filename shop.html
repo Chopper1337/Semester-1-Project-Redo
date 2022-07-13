@@ -28,30 +28,22 @@
                         <a href="about.html" class="nav-link">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <div class="btn-group">
-                            <button type="button" class="btn themedBG text-white dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false">Currency</button>
-                            <ul class="dropdown-menu themedBG dropdown-menu-dark">
-                                <li>
-                                    <a class="dropdown-item text-white"
-                                        onclick="changeCurrency('euro')" href="#">EUR</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item text-white" onclick="changeCurrency('usd')" href="#">USD</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item text-white" onclick="changeCurrency('cad')" href="#">GBP</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <button type="button" id="loginNavBTN" onclick="LoginLogoutBTN()"
                             class="btn btn-primary mx-1">Login/Register</button>
                     </li>
                     <li class="nav-item">
-                        <i class="fa" id="cartCounter">&#xf07a;</i>
-                        <span class='badge badge-warning' id='lblCartCount'></span>
+                        <a href="/cart.html">
+                            <i class="fa icon" id="icon">&#xf2bd;</i>
+                            <span class='badge badge-warning' id='lblCartCount'></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/cart.html">
+                            <i class="fa icon" id="icon">&#xf07a;</i>
+                            <span class='badge badge-warning' id='lblCartCount'></span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -86,6 +78,21 @@
         </div>
     </div>
     <!-- End login modal -->
+    <div class="container">
+        <button type="button" class="btn themedBG text-white dropdown-toggle" data-bs-toggle="dropdown"
+            aria-expanded="false">Currency</button>
+        <ul class="dropdown-menu themedBG dropdown-menu-dark">
+            <li>
+                <a class="dropdown-item text-white" onclick="changeCurrency('euro')" href="#">EUR</a>
+            </li>
+            <li>
+                <a class="dropdown-item text-white" onclick="changeCurrency('usd')" href="#">USD</a>
+            </li>
+            <li>
+                <a class="dropdown-item text-white" onclick="changeCurrency('cad')" href="#">GBP</a>
+            </li>
+        </ul>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-3 my-4">
@@ -126,7 +133,7 @@
                     <img src="assets/media/tf2/strange-frozen-aurora-claidheamh-mor.webp" class="cardImg card-img-top"
                         alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">Frozen Aurora Sword</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
                         <a href="#" class="btn btn-primary currency">€2155998</a>

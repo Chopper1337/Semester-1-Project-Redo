@@ -1,3 +1,26 @@
+const sampleUser = ["shopper@email.com","strongpassword1","Number 29","Real Street", "Co. Sligo", "Ireland"]
+
+function userData(request){
+    if(request == "email"){
+        return sampleUser[0]
+    }
+
+    if(request == "adrLine1"){
+        return sampleUser[2]
+    }
+
+    if(request == "adrLine2"){
+        return sampleUser[3]
+    }
+
+    if(request == "adrLine3"){
+        return sampleUser[4]
+    }
+
+    if(request == "adrLine4"){
+        return sampleUser[5]
+    }
+}
 //////// Login Logic ////////
 
 // Local variable to reflect the login status
@@ -12,7 +35,7 @@ function Login() {
     var enteredUsername = document.getElementById("emailAddressid").value;
     var enteredPassword = document.getElementById("passwordid").value;
 
-    if (enteredUsername == "User@mail.com" && enteredPassword == "Password") {
+    if (enteredUsername == sampleUser[0] && enteredPassword == sampleUser[1]) {
         // Set loggedIn item in local storage to 1, to reflect login status
         localStorage.setItem("loggedIn", "1");
         // Log the action to console
@@ -27,7 +50,7 @@ function Login() {
         // Run CheckLogin function to apply changes to reflect the login status
         CheckLogin();
     }
-    else{
+    else {
         //Fail login error
     }
 
@@ -122,27 +145,24 @@ function updateCart(addItem) {
     // Read local storage for cart items
     var currentCart = localStorage.getItem("cartItems")
 
-    // If the user is logged in
-    if (CheckLogin() == 1) {
-        // If we are supposed to add an item
-        if (addItem > 0) {
-            // If the current cart is not empty
-            if (currentCart > 0) {
-                // Add one to the carts value
-                localStorage.setItem("cartItems", parseInt(currentCart) + 1)
-            }
-            else {
-                // If it is empty (it doesn't exist), create it
-                localStorage.setItem("cartItems", "1");
-            }
-
-            currentCart = localStorage.getItem("cartItems")
-            document.getElementById("lblCartCount").innerHTML = currentCart
-        }
+    if (localStorage.getItem("cartItems") == null) {
+        localStorage.setItem("cartItems", "0");
     }
-    //If the user isn't logged in, hide the cart item counter text
-    else {
-        document.getElementById("lblCartCount").innerHTML = "";
+
+    // If we are supposed to add an item
+    if (addItem > 0) {
+        // If the current cart is not empty
+        if (currentCart > 0) {
+            // Add one to the carts value
+            localStorage.setItem("cartItems", parseInt(currentCart) + 1)
+        }
+        else {
+            // If it is empty (it doesn't exist), create it
+            localStorage.setItem("cartItems", "1");
+        }
+
+        currentCart = localStorage.getItem("cartItems")
+        document.getElementById("lblCartCount").innerHTML = currentCart
     }
 }
 
