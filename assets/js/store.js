@@ -1,4 +1,4 @@
-const sampleUser = ["shopper@email.com","strongpassword1","Number 29","Real Street", "Co. Sligo", "Ireland"]
+const sampleUser = ["1@1.com","1","Number 29","Real Street", "Co. Sligo", "Ireland"]
 
 function userData(request){
     if(request == "email"){
@@ -28,7 +28,7 @@ function userData(request){
 var loginStatus = "0";
 
 // Run the CheckLogin function upon loading this JS file
-//CheckLogin();
+CheckLogin();
 updateCart();
 
 // Log in user
@@ -53,6 +53,8 @@ function Login() {
     }
     else {
         //Fail login error
+        console.log("Incorrect login entered.")
+        alert("Incorrect login.")
     }
 
 }
@@ -88,7 +90,9 @@ function CheckLogin() {
         loginStatus = "0"
         // Change text in login/logout button to say login
         document.getElementById("loginNavBTN").innerHTML = "Login/Register";
-        document.getElementById("lblCartCount").innerHTML = "";
+        if(document.URL.includes("shop.html")){
+            document.getElementById("lblCartCount").innerHTML = "";
+        }
         return 0;
         refreshCart()
     }
@@ -100,11 +104,12 @@ function LoginLogoutBTN() {
     console.log("Login/logout button clicked.")
     if (loginStatus == 1) {
         Logout();
-        console.log("LoginLogoutBTN pressed, user already logged in so they will be logged out")
+        console.log("User already logged in so they will be logged out")
     }
     else {
         var myModal = document.querySelector('#login')
         var modal = bootstrap.Modal.getOrCreateInstance(myModal) // Returns a Bootstrap modal instance
+        console.log("User is not logged in")
         modal.show()
     }
 
@@ -156,10 +161,12 @@ function updateCart(addItem) {
         if (currentCart > 0) {
             // Add one to the carts value
             localStorage.setItem("cartItems", parseInt(currentCart) + 1)
+            updateCart()
         }
         else {
             // If it is empty (it doesn't exist), create it
             localStorage.setItem("cartItems", "1");
+            updateCart()
         }
 
         currentCart = localStorage.getItem("cartItems")
