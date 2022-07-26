@@ -21,6 +21,7 @@ function userData(request){
         return sampleUser[5]
     }
 }
+
 //////// Login Logic ////////
 
 // Local variable to reflect the login status
